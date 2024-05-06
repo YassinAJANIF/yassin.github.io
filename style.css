@@ -2,7 +2,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0; /* Couleur de fond par défaut */
     margin: 0;
     padding: 0;
 }
@@ -31,4 +31,9 @@ img {
     margin: 20px auto;
     max-width: 100%;
     height: auto;
+}
+
+/* Changer la couleur de fond de la page */
+body {
+    background-color: #e6e6e6; /* Nouvelle couleur de fond */
 }
