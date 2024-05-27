@@ -3,6 +3,11 @@
     <head>
         <meta charset="utf-8"/>
         <title>Accueil</title>
+        <style>
+            #searchResults {
+                margin-top: 20px;
+            }
+        </style>
     </head>
     <body>
         <div id="container">
@@ -10,21 +15,27 @@
             <header>
                 <h1>Mon site personnel</h1>
                 <h2>Accueil</h2>
+                <!-- Barre de recherche -->
+                <form id="searchForm">
+                    <input type="text" id="searchInput" placeholder="Rechercher...">
+                    <button type="submit">Rechercher</button>
+                </form>
+                <div id="searchResults"></div>
             </header>
             <!-- le menu de navigation -->
             <nav>
                 <ul>
-                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="#">Accueil</a></li>
                     <li><a href="cv.html">Mon CV</a></li>
-                  <!--  <li><a href="agenda.html">Agenda</a></li>
-                    <li><a href="photos.html">Photos</a></li>
+                    <!-- <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="photos.html">Photos</a></li> -->
                 </ul>
             </nav>
 
             <!-- le contenu de la page -->
             <section>
                 <h2>Bienvenue sur mon mini site web</h2>
-                <img src="images/menu.png" id="menu" usemap="#map" alt="image clicable, pour accéder soit au CV, soit à l'ufr im2ag, soit à moodle">
+                <img src="images/menu.png" id="menu" usemap="#map" alt="image cliquable, pour accéder soit au CV, soit à l'ufr im2ag, soit à moodle">
                 <map name="map" id="map">
                     <!-- #$-:Image map file created by GIMP Image Map plug-in -->
                     <!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
@@ -40,5 +51,36 @@
                 </map>
             </section>
         </div>
+        
+        <!-- Script pour la recherche -->
+        <script>
+            document.getElementById('searchForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                const query = document.getElementById('searchInput').value.toLowerCase();
+                const resultsContainer = document.getElementById('searchResults');
+                resultsContainer.innerHTML = '';
+
+                if (query) {
+                    const results = [];
+                    const content = [
+                        { href: 'cv.html', text: 'Mon CV' },
+                        { href: 'https://www.ec-nantes.fr/', text: 'UFRIM2AG' },
+                        { href: 'https://www.ec-nantes.fr/', text: 'Moodle' }
+                    ];
+
+                    content.forEach(item => {
+                        if (item.text.toLowerCase().includes(query)) {
+                            results.push(`<p><a href="${item.href}">${item.text}</a></p>`);
+                        }
+                    });
+
+                    if (results.length > 0) {
+                        resultsContainer.innerHTML = results.join('');
+                    } else {
+                        resultsContainer.innerHTML = '<p>Aucun résultat trouvé</p>';
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
