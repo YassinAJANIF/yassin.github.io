@@ -1,55 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Page Web Simple</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
-        img {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Accueil</title>
+    </head>
+    <body>
+        <div id="container">
+            <!-- l'en-tête de la page -->
+            <header>
+                <h1>Mon site personnel</h1>
+                <h2>Accueil</h2>
+            </header>
+            <!-- le menu de navigation -->
+            <nav>
+                <ul>
+                    <li><a href="#">Acceuil</a></li>
+                    <li><a href="cv.html">Mon CV</a></li>
+                  <!--  <li><a href="agenda.html">Agenda</a></li>
+                    <li><a href="photos.html">Photos</a></li>
+                </ul>
+            </nav>
 
-<div class="container">
-    <h1>Bienvenue sur Ma Page Web Simple</h1>
-    <p>Ceci est un exemple de page web simple créée en HTML. Vous pouvez personnaliser cette page selon vos besoins.</p>
-    <p>Voici quelques éléments que vous pouvez ajouter :</p>
-    <ul>
-        <li>Images</li>
-        <li>Liens vers d'autres pages webs</li>
-        <li>Formulaires pour la collecte d'informations</li>
-        <li>Styliser avec CSS pour un aspect plus attrayant</li>
-        <li>Scripts JavaScript pour une interactivité dynamique</li>
-    </ul>
-    <img src="image.PNG" alt="Exemple d'image">
-</div>
-
-</body>
+            <!-- le contenu de la page -->
+            <section>
+                <h2>Bienvenue sur mon mini site web</h2>
+                <img src="images/menu.png" id="menu" usemap="#map" alt="image clicable, pour accéder soit au CV, soit à l'ufr im2ag, soit à moodle">
+                <map name="map" id="map">
+                    <!-- #$-:Image map file created by GIMP Image Map plug-in -->
+                    <!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
+                    <!-- #$-:Please do not edit lines starting with "#$" -->
+                    <!-- #$VERSION:2.3 -->
+                    <!-- #$AUTHOR:genoud -->
+                    <area shape="circle" coords="190,198,95" alt="lien vers UFRIM2AG" href="https://im2ag.univ-grenoble-alpes.fr/" 
+                          onMouseOver="menu.src = 'images/menu1.png';" onMouseOut="menu.src = 'images/menu.png';" />
+                    <area shape="circle" coords="311,339,99" alt="lien vers CV" href="cv.html" 
+                          onMouseOver="menu.src = 'images/menu3.png';" onMouseOut="menu.src = 'images/menu.png'"/>
+                    <area shape="circle" coords="470,178,106" alt="lien vers moodle" href="https://im2ag-moodle.univ-grenoble-alpes.fr" 
+                          onMouseOver="menu.src = 'images/menu2.png';" onMouseOut="menu.src = 'images/menu.png';" />
+                </map>
+            </section>
+        </div>
+    </body>
 </html>
